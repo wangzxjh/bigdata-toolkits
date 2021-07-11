@@ -3,6 +3,7 @@ package org.huawei.yarn;
 import org.apache.commons.lang.math.LongRange;
 import org.huawei.yarn.entity.ApplicationState;
 
+import java.io.File;
 import java.util.EnumSet;
 import java.util.Set;
 
@@ -109,5 +110,10 @@ public class Filter {
             this.limit = limit;
             return this;
         }
+
+        public Filter build(){
+            return new Filter(this);
+        }
     }
+   
 }

@@ -2,6 +2,8 @@ package org.huawei.jdbc.hetu;
 
 import org.huawei.jdbc.JdbcClient;
 
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 public class HetuClient extends JdbcClient {
@@ -18,6 +20,13 @@ public class HetuClient extends JdbcClient {
         super(url, properties);
     }
 
+    
+
+
+    @Override
+    public Statement createStatement(String sql) throws SQLException {
+        return connection.createStatement();
+    }
 
     @Override
     protected void loadDriverClass() throws ClassNotFoundException {

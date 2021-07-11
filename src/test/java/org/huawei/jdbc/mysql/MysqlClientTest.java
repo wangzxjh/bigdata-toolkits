@@ -2,6 +2,7 @@ package org.huawei.jdbc.mysql;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ public class MysqlClientTest extends JobClientTest {
         client.init();
     }
 
-    @Test
+    @Ignore
     public void testCase() throws SQLException {
         baseCase();
     }

@@ -56,15 +56,19 @@ public abstract class JdbcClient implements AutoCloseable {
     public void executeQuery(String sql, QueryCallBack queryCallBack) throws SQLException {
         Preconditions.checkState(intialed, this.getClass().getSimpleName() + " has not be initialed");
 
-        try (Statement statement = connection.prepareStatement(sql)) {
+        try (Statement statement = createStatement(sql)) {
             queryCallBack.call(statement.executeQuery(sql));
         }
+    }
+
+    public Statement createStatement(String sql) throws SQLException{
+        return connection.prepareStatement(sql);
     }
 
     public void executeUpdate(String sql, UpdateCallBack callBack) throws SQLException {
         Preconditions.checkState(intialed, this.getClass().getSimpleName() + " has not be initialed");
 
-        try (Statement statement = connection.prepareStatement(sql)) {
+        try (Statement statement = createStatement(sql)) {
             callBack.call(statement.executeUpdate(sql));
         }
     }
@@ -72,7 +76,7 @@ public abstract class JdbcClient implements AutoCloseable {
     public void execute(String sql, ExecuteCallBack callBack) throws SQLException {
         Preconditions.checkState(intialed, this.getClass().getSimpleName() + " has not be initialed");
 
-        try (Statement statement = connection.prepareStatement(sql)) {
+        try (Statement statement = createStatement(sql)) {
             callBack.call(statement.execute(sql));
         }
     }

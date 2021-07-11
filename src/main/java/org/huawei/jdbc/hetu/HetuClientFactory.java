@@ -1,26 +1,18 @@
 package org.huawei.jdbc.hetu;
 
-import com.google.common.base.Preconditions;
-import com.google.common.base.Splitter;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.message.BasicNameValuePair;
-import org.eclipse.jetty.util.MultiMap;
-import org.eclipse.jetty.util.UrlEncoded;
-import org.huawei.jdbc.JdbcClient;
+import static org.huawei.jdbc.hetu.DiscoverMode.BROKER;
+import static org.huawei.jdbc.hetu.DiscoverMode.ZOOKEEPER;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-import static org.huawei.jdbc.hetu.DiscoverMode.BROKER;
-import static org.huawei.jdbc.hetu.DiscoverMode.ZOOKEEPER;
+import com.google.common.base.Preconditions;
 
+import org.apache.commons.lang3.StringUtils;
+import org.huawei.jdbc.JdbcClient;
 public class HetuClientFactory {
     public static final String SERVICE_DISCOVERY_MODE = "serviceDiscoveryMode";
     public static final String SSL = "SSL";
@@ -165,8 +157,11 @@ public class HetuClientFactory {
         return createSecurityZkInstance(url, user, jaasZkPath, krb5Path, userKeytabPath);
     }
 
-    public static JdbcClient createSecurityZkPasswordInstance(String url, String user, String password, String krb5Path) {
+    public static JdbcClient createSecurityZkPasswordInstance(String url, String user, String password) {
         url = appendNeededParameter(url, ZOOKEEPER);
+        String krb5Path = Objects.requireNonNull(HetuClientFactory.class.getClassLoader()
+                .getResource(KRB_5_CONF_FILENAME))
+                .getPath();
 
         Properties properties = new Properties();
         System.setProperty("user.timezone", "UTC");

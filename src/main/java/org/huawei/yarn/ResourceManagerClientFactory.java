@@ -26,6 +26,7 @@ public class ResourceManagerClientFactory {
 
     public static ResourceManagerAPI createSecurityInstance(String principalName) throws IOException {
         Configuration conf = new YarnConfiguration();
+        System.out.println(conf.get("yarn.resourcemanager.resource-tracker.address.port"));
         login(principalName, conf);
         return new ResourceManagerClient(conf);
     }
