@@ -6,7 +6,7 @@ import org.huawei.yarn.entity.ApplicationInfo;
 import java.io.IOException;
 import java.util.List;
 
-public interface ResourceManagerAPI {
+public interface ResourceManagerAPI extends AutoCloseable{
     ApplicationInfo getApplication(String Id) throws IOException, YarnException;
 
     List<ApplicationInfo> getAllApplications() throws IOException, YarnException;
