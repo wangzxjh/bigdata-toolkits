@@ -1,0 +1,22 @@
+report.dir: ./mysqlVerifyReport
+threads: 8
+mysql.confs:
+  - name: 'test1'
+    source:
+      url: 'jdbc:mysql:localhost:3306'
+      user: 'root'
+      password: 'xxx'
+    target:
+      url: 'jdbc:mysql:localhost:3306'
+      user: 'root'
+      password: 'xxx'
+  - name: 'test2'
+    source:
+      url: 'jdbc:mysql:localhost:3306'
+      user: 'root'
+      password: 'xxx'
+    target:
+      url: 'jdbc:mysql:localhost:3306'
+      user: 'root'
+      password: 'xxx'
+
