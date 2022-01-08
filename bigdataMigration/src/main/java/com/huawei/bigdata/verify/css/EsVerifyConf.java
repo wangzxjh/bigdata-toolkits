@@ -1,10 +1,9 @@
-package com.huawei.bigdata.verify.mysql;
+package com.huawei.bigdata.verify.css;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
-public class MysqlVerifyConf {
+public class EsVerifyConf {
 
   @JsonProperty("report.dir")
   private String reportDir;
@@ -33,8 +32,8 @@ public class MysqlVerifyConf {
     private List<String> includeDatabase;
     private List<String> includeTables;
 
-    private MysqlConf source;
-    private MysqlConf target;
+    private EsConf source;
+    private EsConf target;
 
     public String getName() {
       return name;
@@ -52,16 +51,16 @@ public class MysqlVerifyConf {
       return includeDatabase;
     }
 
-    public MysqlConf getSource() {
+    public EsConf getSource() {
       return source;
     }
 
-    public MysqlConf getTarget() {
+    public EsConf getTarget() {
       return target;
     }
   }
 
-  public static class MysqlConf {
+  public static class EsConf {
 
     private String url;
     private String user;

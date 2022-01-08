@@ -107,19 +107,25 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
-
-
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>elasticsearch-rest-high-level-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>elasticsearch-rest-client</artifactId>
+    </dependency>
   </dependencies>
 
   <build>
-    <!--    <resources>-->
-    <!--      <resource>-->
-    <!--        <directory>src/main/resources</directory>-->
-    <!--        <excludes>-->
-    <!--          <exclude>log4j.properties</exclude>-->
-    <!--        </excludes>-->
-    <!--      </resource>-->
-    <!--    </resources>-->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>*</exclude>
+        </excludes>
+      </resource>
+    </resources>
 
     <plugins>
       <!--  这个插件是关键  -->

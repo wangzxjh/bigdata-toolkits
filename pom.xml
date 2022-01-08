@@ -29,6 +29,7 @@
     <jackson.version>2.10.1</jackson.version>
     <mysql.version>8.0.27</mysql.version>
     <snakeyaml.version>1.30</snakeyaml.version>
+    <elasticsearch.version>7.10.0</elasticsearch.version>
   </properties>
 
   <dependencyManagement>
@@ -104,6 +105,16 @@
         <groupId>org.yaml</groupId>
         <artifactId>snakeyaml</artifactId>
         <version>${snakeyaml.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.elasticsearch.client</groupId>
+        <artifactId>elasticsearch-rest-high-level-client</artifactId>
+        <version>${elasticsearch.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.elasticsearch.client</groupId>
+        <artifactId>elasticsearch-rest-client</artifactId>
+        <version>${elasticsearch.version}</version>
       </dependency>
 
     </dependencies>

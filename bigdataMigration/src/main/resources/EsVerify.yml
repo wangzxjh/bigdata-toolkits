@@ -1,14 +1,14 @@
-report.dir: ./mysqlVerifyReport
+report.dir: ./esVerifyReport
 threads: 8
-mysql.confs:
+es.confs:
   - name: 'test1'
     excludeDatabase:
       - information_schema
     includeDatabase:
-    includeTables:
+
     source:
       url: 'jdbc:mysql://122.9.203.121:3306'
-      user: 'root'
+      user: 'admin'
       password: 'CTDplat!@09'
     target:
       url: 'jdbc:mysql://122.9.203.121:3306'
